@@ -2,6 +2,10 @@ package Sorting;
 
 import java.util.Scanner;
 
+/**
+ * 백준 2750
+ * 버블 정렬
+ */
 public class BubbleSorting {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);

@@ -3,6 +3,10 @@ package Sorting;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * 백준 1427
+ * 선택 정렬
+ */
 public class SelectionSorting {
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);

@@ -4,16 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 백준 11724
- * DFS, BFS
- * - 연결요소의 갯수 == 연결된 그래프의 갯수
+ * 백준 2252
+ * 위상 정렬
+ *
+ * - 로직 한 번 더 훑어보기
+ * - bfs 랑 비슷함
  */
-public class NumberOfConnection {
-  static boolean[] visited;
+public class StudentLineSet {
   static ArrayList<Integer>[] list;
+  static int[] degreeArr;
 
   public static void main(String[] args) throws IOException {
     BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
@@ -21,12 +25,11 @@ public class NumberOfConnection {
 
     int n = Integer.parseInt(st.nextToken());
     int m = Integer.parseInt(st.nextToken());
-
-    visited = new boolean[n + 1];
     list = new ArrayList[n + 1];
+    degreeArr = new int[n + 1];
 
     for (int i = 1; i <= n; i++) {
-      list[i] = new ArrayList<Integer>();
+      list[i] = new ArrayList<>();
     }
 
     for (int i = 0; i < m; i++) {
@@ -35,30 +38,28 @@ public class NumberOfConnection {
       int end = Integer.parseInt(st.nextToken());
 
       list[start].add(end);
-      list[end].add(start);
+      degreeArr[end]++;
     }
 
-    int graphCount = 0;
-    for (int i = 1; i <= n; i++) {
-      if (!visited[i]) {
-        graphCount++;
-        dfs(i);
-      }
-    }
-
-    System.out.println(graphCount);
+    graphSorting();
   }
 
-  private static void dfs(int nodeIndex) {
-    if (visited[nodeIndex]) {
-      return;
+  private static void graphSorting() {
+    Queue<Integer> queue = new LinkedList<>();
+    for (int i = 1; i < degreeArr.length; i++) {
+      if(degreeArr[i] == 0) queue.add(i);
     }
 
-    visited[nodeIndex] = true;
+    while (!queue.isEmpty()) {
+      int now = queue.poll();
 
-    for (int chlidIndex : list[nodeIndex]) {
-      if (!visited[chlidIndex]) {
-        dfs(chlidIndex);
+      System.out.println(now + " ");
+
+      for (int next : list[now]) {
+        degreeArr[next]--;
+        if(degreeArr[next] == 0) {
+          queue.add(next);
+        }
       }
     }
   }

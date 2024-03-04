@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+/*
+ * 백준 1940
+ * 정렬, 투 포인터
+ * - 두 재료라는 키워드 => 투 포인터
+ */
 public class JuMongGapOat {
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -20,6 +25,7 @@ public class JuMongGapOat {
       arr[i] = Integer.parseInt(stringTokenizer.nextToken());
     }
 
+    // 각각 크기라는 개념이 있을 경우 정렬
     Arrays.sort(arr);
 
     int count = 0;

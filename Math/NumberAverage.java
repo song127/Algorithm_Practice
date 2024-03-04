@@ -1,7 +1,11 @@
-package Number;
+package Math;
 
 import java.util.Scanner;
 
+/*
+ * 백준 1546
+ * 기본 수학
+ */
 public class NumberAverage {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);

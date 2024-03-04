@@ -1,7 +1,11 @@
-package Number;
+package Math;
 
 import java.util.Scanner;
 
+/**
+ * 백준 11720
+ * 기본 수학
+ */
 class NumberSum {
 
     public static void main(String[] args) {
