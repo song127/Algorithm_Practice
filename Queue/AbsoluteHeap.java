@@ -26,9 +26,9 @@ public class AbsoluteHeap {
       int abs1 = Math.abs(o1);
       int abs2 = Math.abs(o2);
       if (abs1 == abs2)
-        // o1 > o2
-        // ==> 1 > -1 == 1 / o1 이 후순위, o2 가 선순위
-        // ==> -1 > 1 == -1 / o1 이 선순위, o2 가 후순위
+        // o1 > o2 / 작은 순대로 정렬 시
+        // ==> 1 > -1 == 1 / o1 이 후순위, o2 가 선순위 / + 스왑
+        // ==> -1 > 1 == -1 / o1 이 선순위, o2 가 후순위 / - 논스왑
         return o1 > o2 ? 1 : -1;
 
       return abs1 > abs2 ? 1 : -1;
