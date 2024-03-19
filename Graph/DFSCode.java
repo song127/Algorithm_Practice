@@ -39,6 +39,7 @@ public class DFSCode {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
           stack.push(neighbor);
+          break;
         }
       }
     }
